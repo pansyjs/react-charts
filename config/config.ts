@@ -11,7 +11,7 @@ export default {
     '/components': [
       {
         title: '图表',
-        children: ['/components/line', 'components/area']
+        children: ['/components/line', 'components/area', 'components/pie']
       }
     ]
   },
