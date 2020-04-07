@@ -1,7 +1,4 @@
 export default {
-  esm: {
-    type: 'babel',
-    importLibToEs: true
-  },
-  cjs: 'babel'
+  cjs: 'babel',
+  esm: { type: 'babel', importLibToEs: true }
 };
