@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { Line as G2Line, LineConfig } from '@antv/g2plot';
+import { Area as G2Area, AreaConfig } from '@antv/g2plot';
 import { randomString } from '../_utils';
 
-export interface LineProps extends LineConfig {
-  onCreated?: (chart: G2Line) => void;
+export interface AreaProps extends AreaConfig {
+  onCreated?: (chart: G2Area) => void;
 }
 
-class Line extends Component<LineProps> {
+class Area extends Component<AreaProps> {
   private root: HTMLDivElement;
-  private lineInstance: G2Line;
+  private lineInstance: G2Area;
   private containerId: string;
 
-  static defaultProps: LineProps = {
+  static defaultProps: AreaProps = {
     forceFit: true,
     height: 400,
     yField: 'value',
@@ -25,20 +25,20 @@ class Line extends Component<LineProps> {
     }
   };
 
-  constructor(props: LineProps) {
+  constructor(props: AreaProps) {
     super(props);
     this.containerId = randomString();
   }
 
   componentDidMount() {
     const { onCreated, ...opts } = this.props;
-    this.lineInstance = new G2Line(this.root, opts);
+    this.lineInstance = new G2Area(this.root, opts);
     this.renderChart(opts, true);
 
     onCreated && onCreated(this.lineInstance);
   }
 
-  shouldComponentUpdate(nextProps: LineProps) {
+  shouldComponentUpdate(nextProps: AreaProps) {
     if (this.props.data !== nextProps.data) {
       this.lineInstance.changeData(nextProps.data || []);
       return false;
@@ -47,7 +47,7 @@ class Line extends Component<LineProps> {
     return true;
   }
 
-  renderChart = (opts: LineConfig, isFirst: boolean = false) => {
+  renderChart = (opts: AreaConfig, isFirst: boolean = false) => {
     if (!isFirst) {
       this.lineInstance.updateConfig(opts);
     }
@@ -63,4 +63,4 @@ class Line extends Component<LineProps> {
   }
 }
 
-export default Line;
+export default Area;

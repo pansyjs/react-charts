@@ -1,5 +1,3 @@
-import { join } from 'path';
-
 export default {
   mode: 'site',
   title: 'React Charts',
@@ -13,7 +11,7 @@ export default {
     '/components': [
       {
         title: '图表',
-        children: ['/components/line']
+        children: ['/components/line', 'components/area']
       }
     ]
   },
