@@ -13,7 +13,6 @@ class Area extends Component<AreaProps> {
 
   static defaultProps: AreaProps = {
     forceFit: true,
-    height: 400,
     yField: 'value',
     padding: 'auto',
     point: {

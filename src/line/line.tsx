@@ -13,7 +13,6 @@ class Line extends Component<LineProps> {
 
   static defaultProps: LineProps = {
     forceFit: true,
-    height: 400,
     yField: 'value',
     padding: 'auto',
     point: {
