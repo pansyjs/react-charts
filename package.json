@@ -1,0 +1,60 @@
+{
+  "name": "@pansy/react-charts",
+  "version": "0.1.0",
+  "description": "react charts",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "es",
+    "lib"
+  ],
+  "repository": "git@github.com:pansyjs/react-charts.git",
+  "author": "kang <wang_xingkang@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "dumi dev",
+    "build": "dumi build",
+    "build:lib": "father-build",
+    "test": "birma-test",
+    "prettier": "walrus prettier",
+    "lint:style": "walrus stylelint --fix 'src/**/*.less' --syntax less",
+    "lint:commit": "walrus commitlint --env HUSKY_GIT_PARAMS",
+    "release": "walrus release"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "dependencies": {
+    "@antv/g2plot": "^1.0.3",
+    "father-build": "^1.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@types/react": "^16.9.32",
+    "@types/react-dom": "^16.9.6",
+    "@walrus/cli": "^1.3.0",
+    "@walrus/plugin-release": "^1.8.0",
+    "@walrus/preset-lint": "^1.1.5",
+    "@walrus/test": "^1.0.1",
+    "dumi": "^1.0.14",
+    "husky": "3.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.8.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn prettier",
+      "commit-msg": "yarn lint:commit"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=10.9.0",
+    "yarn": ">=1.3.2"
+  }
+}
