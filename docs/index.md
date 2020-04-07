@@ -23,7 +23,7 @@ footer: SENSORO FE Team | Copyright © 2019-present
 
 ```
 # 安装依赖
-$ yarn add @sensoro/sensoro-design
+$ yarn add @pansy/react-charts
 
 # 使用
 import { Line } from '@pansy/react-charts';
