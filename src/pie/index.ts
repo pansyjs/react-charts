@@ -1,3 +1,3 @@
-import Pie from './line';
+import Pie from './pie';
 
 export default Pie;

@@ -8,6 +8,14 @@
 
 <code src="./demo/simple.tsx" />
 
+### 外部图形标签
+
+<code src="./demo/outer-label.tsx" />
+
+### 图形标签蜘蛛布局
+
+<code src="./demo/spider-label.tsx" />
+
 ## API
 
 文本链接的属性说明如下：
