@@ -1,7 +1,7 @@
 {
   "name": "@pansy/react-chart",
   "version": "0.1.2",
-  "description": "react charts",
+  "description": "react chart",
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
