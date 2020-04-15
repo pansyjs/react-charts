@@ -19,7 +19,9 @@ export default {
           '/components/column',
           '/components/step-line',
           '/components/bar',
-          '/components/liquid'
+          '/components/liquid',
+          '/components/bullet',
+          '/components/calendar'
         ]
       }
     ]

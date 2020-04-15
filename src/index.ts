@@ -6,3 +6,5 @@ export { default as Column } from './column';
 export { default as StepLine } from './step-line';
 export { default as Bar } from './bar';
 export { default as Liquid } from './liquid';
+export { default as Bullet } from './bullet';
+export { default as Calendar } from './calendar';
