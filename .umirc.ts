@@ -16,7 +16,10 @@ export default {
           '/components/area',
           '/components/pie',
           '/components/donut',
-          '/components/column'
+          '/components/column',
+          '/components/step-line',
+          '/components/bar',
+          '/components/liquid'
         ]
       }
     ]
