@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Pie } from '@pansy/react-charts';
+// @ts-ignore
+import { Pie } from '@pansy/react-chart';
 
 const data = [
   {

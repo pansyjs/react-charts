@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Dount } from '@pansy/react-charts';
+// @ts-ignore
+import { Dount } from '@pansy/react-chart';
 
 const data = [
   {

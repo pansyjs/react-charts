@@ -1,6 +1,6 @@
 export default {
   mode: 'site',
-  title: 'React Charts',
+  title: 'React Chart',
   menus: {
     '/guide': [
       {
@@ -11,7 +11,13 @@ export default {
     '/components': [
       {
         title: '图表',
-        children: ['/components/line', '/components/area', '/components/pie', '/components/donut']
+        children: [
+          '/components/line',
+          '/components/area',
+          '/components/pie',
+          '/components/donut',
+          '/components/column'
+        ]
       }
     ]
   },

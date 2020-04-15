@@ -1,7 +1,7 @@
 ---
-title: React Charts
+title: React Chart
 hero:
-  title: React Charts
+  title: React Chart
   desc: 基于 G2Plot 的高质量图表组件，为提效而生。
   actions:
     - text: 快速上手 →
@@ -23,10 +23,10 @@ footer: SENSORO FE Team | Copyright © 2019-present
 
 ```
 # 安装依赖
-$ yarn add @pansy/react-charts
+$ yarn add @pansy/react-chart
 
 # 使用
-import { Line } from '@pansy/react-charts';
+import { Line } from '@pansy/react-chart';
 
 const Example = () => {
   return (

@@ -1,5 +1,5 @@
 {
-  "name": "@pansy/react-charts",
+  "name": "@pansy/react-chart",
   "version": "0.1.2",
   "description": "react charts",
   "main": "lib/index.js",
@@ -9,7 +9,7 @@
     "es",
     "lib"
   ],
-  "repository": "git@github.com:pansyjs/react-charts.git",
+  "repository": "git@github.com:pansyjs/react-chart.git",
   "author": "kang <wang_xingkang@qq.com>",
   "license": "MIT",
   "scripts": {

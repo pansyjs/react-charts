@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Area } from '@pansy/react-charts';
+// @ts-ignore
+import { Area } from '@pansy/react-chart';
 
 const data = [
   { date: '2020-04-01', value: 3 },

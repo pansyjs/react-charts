@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
-import { Line } from '@pansy/react-charts';
+// @ts-ignore
+import { Line } from '@pansy/react-chart';
 
 const data = [
   {
