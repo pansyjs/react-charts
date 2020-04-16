@@ -21,7 +21,8 @@ export default {
           '/components/bar',
           '/components/liquid',
           '/components/bullet',
-          '/components/calendar'
+          '/components/calendar',
+          '/components/radar'
         ]
       }
     ]

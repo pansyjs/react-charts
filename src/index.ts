@@ -8,3 +8,4 @@ export { default as Bar } from './bar';
 export { default as Liquid } from './liquid';
 export { default as Bullet } from './bullet';
 export { default as Calendar } from './calendar';
+export { default as Radar } from './radar';
