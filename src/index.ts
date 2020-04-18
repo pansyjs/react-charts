@@ -9,3 +9,4 @@ export { default as Liquid } from './liquid';
 export { default as Bullet } from './bullet';
 export { default as Calendar } from './calendar';
 export { default as Radar } from './radar';
+export { default as Rose } from './rose';

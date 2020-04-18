@@ -22,7 +22,8 @@ export default {
           '/components/liquid',
           '/components/bullet',
           '/components/calendar',
-          '/components/radar'
+          '/components/radar',
+          '/components/rose'
         ]
       }
     ]
