@@ -1,5 +1,5 @@
 {
-  "name": "@pansy/react-chart",
+  "name": "@pansy/react-charts",
   "version": "0.1.2",
   "description": "react chart",
   "main": "lib/index.js",
