@@ -37,7 +37,7 @@
     "@walrus/plugin-release": "^1.8.0",
     "@walrus/preset-lint": "^1.1.5",
     "@walrus/test": "^1.0.1",
-    "dumi": "^1.0.14",
+    "dumi": "^1.0.17",
     "father-build": "^1.17.2",
     "husky": "3.1.0",
     "react": "^16.13.1",
