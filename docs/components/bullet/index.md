@@ -1,3 +1,13 @@
+---
+title: Bullet 子弹图
+nav:
+  title: 组件
+  path: /component
+group:
+  title: 基本图表
+  path: /basic
+---
+
 # Bullet 子弹图
 
 ## 基础子弹图

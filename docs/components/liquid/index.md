@@ -1,3 +1,13 @@
+---
+title: Liquid 水波图
+nav:
+  title: 组件
+  path: /component
+group:
+  title: 基本图表
+  path: /basic
+---
+
 # Liquid 水波图
 
 ## 基本使用

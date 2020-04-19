@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { Calendar } from '@pansy/react-chart';
+import { Calendar } from '@pansy/react-charts';
 
 const data = [
   { date: '2017-05-01', commits: 1, month: 4, day: 1, week: '0' },
