@@ -1,3 +1,13 @@
+---
+title: Rose 玫瑰图
+nav:
+  title: 组件
+  path: /component
+group:
+  title: 基本图表
+  path: /basic
+---
+
 # Rose 玫瑰图
 
 ## 多色玫瑰图

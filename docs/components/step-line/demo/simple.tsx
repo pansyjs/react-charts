@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { StepLine } from '@pansy/react-chart';
+import { StepLine } from '@pansy/react-charts';
 
 const data = [
   { year: '1991', value: 3 },

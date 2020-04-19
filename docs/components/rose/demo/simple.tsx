@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { Rose } from '@pansy/react-chart';
+import { Rose } from '@pansy/react-charts';
 
 const data = [
   { type: '分类一', value: 27 },

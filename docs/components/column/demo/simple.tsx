@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { Column } from '@pansy/react-chart';
+import { Column } from '@pansy/react-charts';
 
 const data = [
   { type: '家具家电', value: 38 },

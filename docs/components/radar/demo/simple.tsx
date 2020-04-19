@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { Radar } from '@pansy/react-chart';
+import { Radar } from '@pansy/react-charts';
 
 const data = [
   { item: 'Design', value: 70 },

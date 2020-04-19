@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { Bullet } from '@pansy/react-chart';
+import { Bullet } from '@pansy/react-charts';
 
 const data = [
   {

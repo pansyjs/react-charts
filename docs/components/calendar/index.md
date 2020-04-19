@@ -1,3 +1,13 @@
+---
+title: Calendar 日历图
+nav:
+  title: 组件
+  path: /component
+group:
+  title: 基本图表
+  path: /basic
+---
+
 # Calendar 日历图
 
 ## 基础日历图
