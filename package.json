@@ -9,14 +9,14 @@
     "es",
     "lib"
   ],
-  "repository": "git@github.com:pansyjs/react-chart.git",
-  "author": "kang <wang_xingkang@qq.com>",
+  "repository": "git@github.com:pansyjs/react-charts.git",
+  "author": "Pansy Team",
   "license": "MIT",
   "scripts": {
     "start": "dumi dev",
     "build": "dumi build",
     "build:lib": "father-build",
-    "test": "birma-test",
+    "test": "walrus-test",
     "prettier": "walrus prettier",
     "lint:style": "walrus stylelint --fix 'src/**/*.less' --syntax less",
     "lint:commit": "walrus commitlint --env HUSKY_GIT_PARAMS",
