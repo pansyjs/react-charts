@@ -27,7 +27,7 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@antv/g2plot": "^1.0.3"
+    "@antv/g2plot": "^1.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
