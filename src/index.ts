@@ -10,3 +10,4 @@ export { default as Bullet } from './bullet';
 export { default as Calendar } from './calendar';
 export { default as Radar } from './radar';
 export { default as Rose } from './rose';
+export { default as Funnel } from './funnel';
