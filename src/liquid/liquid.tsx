@@ -30,10 +30,6 @@ class Liquid extends Component<LiquidProps> {
     onCreated && onCreated(this.instance);
   }
 
-  shouldComponentUpdate(nextProps: LiquidProps) {
-    return true;
-  }
-
   renderChart = (opts: LiquidProps, isFirst: boolean = false) => {
     if (!isFirst) {
       this.instance.updateConfig(opts);
