@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Rose as G2Rose, RoseConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface RoseProps extends RoseConfig {
   onCreated?: (chart: G2Rose) => void;

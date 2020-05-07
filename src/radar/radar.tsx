@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Radar as G2Radar, RadarConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface RadarProps extends RadarConfig {
   onCreated?: (chart: G2Radar) => void;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Pie as G2Pie, PieConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface PieProps extends PieConfig {
   onCreated?: (chart: G2Pie) => void;

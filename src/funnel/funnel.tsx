@@ -1,7 +1,7 @@
 import React, { MutableRefObject, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { Funnel as G2Funnel, FunnelConfig } from '@antv/g2plot';
-import useChart from '../common/use-chart';
-import ErrorBoundary from '../common/error-boundary';
+import useChart from '../common/hooks/use-chart';
+import ErrorBoundary from '../common/components/error-boundary';
 
 export interface FunnelProps extends FunnelConfig {
   chartRef?: MutableRefObject<G2Funnel | undefined>;

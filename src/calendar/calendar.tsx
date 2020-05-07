@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Calendar as G2Calendar, CalendarConfig } from '@antv/g2plot';
 import { CalendarViewConfig } from '@antv/g2plot/esm/plots/calendar/layer';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface CalendarProps extends CalendarViewConfig, CalendarConfig {
   onCreated?: (chart: G2Calendar) => void;

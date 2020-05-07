@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StepLine as G2StepLine, StepLineConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface StepLineProps extends StepLineConfig {
   onCreated?: (chart: G2StepLine) => void;

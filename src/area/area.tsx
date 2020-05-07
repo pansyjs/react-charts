@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Area as G2Area, AreaConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface AreaProps extends AreaConfig {
   onCreated?: (chart: G2Area) => void;

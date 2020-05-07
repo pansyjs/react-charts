@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Bullet as G2Bullet, BulletConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface BulletProps extends BulletConfig {
   onCreated?: (chart: G2Bullet) => void;

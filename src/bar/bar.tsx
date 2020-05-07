@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Bar as G2Bar, BarConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface StepLineProps extends BarConfig {
   onCreated?: (chart: G2Bar) => void;

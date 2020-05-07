@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Column as G2Column, ColumnConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface ColumnProps extends ColumnConfig {
   onCreated?: (chart: G2Column) => void;

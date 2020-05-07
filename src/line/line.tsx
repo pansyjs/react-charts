@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Line as G2Line, LineConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface LineProps extends LineConfig {
   onCreated?: (chart: G2Line) => void;

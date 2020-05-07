@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Donut as G2Donut, DonutConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import { randomString } from '../common/utils';
 
 export interface DonutProps extends DonutConfig {
   onCreated?: (chart: G2Donut) => void;

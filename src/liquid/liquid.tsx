@@ -1,49 +1,34 @@
-import React, { Component } from 'react';
-import { Liquid as G2Liquid, LiquidConfig } from '@antv/g2plot';
-import { randomString } from '../_utils';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Liquid as G2plotLiquid, LiquidConfig as G2plotProps } from '@antv/g2plot';
+import useChart from '../common/hooks/use-chart';
+import ErrorBoundary from '../common/components/error-boundary';
 
-export interface LiquidProps extends LiquidConfig {
-  onCreated?: (chart: G2Liquid) => void;
+export interface LiquidConfig extends G2plotProps {
+  chartRef?: React.MutableRefObject<G2plotLiquid | undefined>;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
-class Liquid extends Component<LiquidProps> {
-  private root: HTMLDivElement;
-  private instance: G2Liquid;
-  private containerId: string;
+const LiquidChart = forwardRef((props: LiquidConfig, ref) => {
+  const { chartRef, style = {}, className, ...rest } = props;
 
-  static defaultProps: Partial<LiquidProps> = {
-    forceFit: true,
-    yField: 'value',
-    padding: 'auto'
-  };
+  const { chart, container } = useChart<G2plotLiquid, LiquidConfig>(G2plotLiquid, rest);
 
-  constructor(props: LiquidProps) {
-    super(props);
-    this.containerId = randomString();
-  }
-
-  componentDidMount() {
-    const { onCreated, ...opts } = this.props;
-    this.instance = new G2Liquid(this.root, opts);
-    this.renderChart(opts, true);
-
-    onCreated && onCreated(this.instance);
-  }
-
-  renderChart = (opts: LiquidProps, isFirst: boolean = false) => {
-    if (!isFirst) {
-      this.instance.updateConfig(opts);
+  useEffect(() => {
+    if (chartRef) {
+      chartRef.current = chart.current;
     }
-    this.instance.render();
-  };
+  }, [chart.current]);
+  useImperativeHandle(ref, () => ({
+    getChart: () => chart.current
+  }));
+  return (
+    <ErrorBoundary>
+      <div className={className} style={style} ref={container} />
+    </ErrorBoundary>
+  );
+});
 
-  saveRoot = (node: HTMLDivElement) => {
-    this.root = node;
-  };
+LiquidChart.defaultProps = G2plotLiquid.getDefaultOptions();
 
-  render() {
-    return <div ref={this.saveRoot} id={this.containerId} />;
-  }
-}
-
-export default Liquid;
+export default LiquidChart;
