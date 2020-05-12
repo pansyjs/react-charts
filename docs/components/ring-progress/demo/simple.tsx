@@ -3,18 +3,7 @@ import React, { FC } from 'react';
 import { RingProgress } from '@pansy/react-charts';
 
 const Example: FC = () => {
-  return (
-    <RingProgress
-      width={56}
-      height={56}
-      size={12}
-      percent={0.3}
-      progressStyle={{
-        lineWidth: '15px',
-        stroke: 'red'
-      }}
-    />
-  );
+  return <RingProgress width={56} height={56} percent={0.7} />;
 };
 
 export default Example;

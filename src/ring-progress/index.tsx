@@ -18,8 +18,6 @@ export interface RingProgressProps extends RingProgressConfig {
 const RingProgress = forwardRef((props: RingProgressProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
 
-  console.log({ ...rest });
-
   const { chart, container } = useChart<G2RingProgress, RingProgressConfig>(G2RingProgress, rest);
 
   useEffect(() => {

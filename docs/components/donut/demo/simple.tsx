@@ -32,7 +32,7 @@ const data = [
 const Example: FC = () => {
   return (
     <div>
-      <Dount data={data} colorField="type" />
+      <Dount forceFit data={data} />
     </div>
   );
 };

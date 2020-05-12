@@ -16,6 +16,10 @@ group:
 
 <code src="./demo/simple.tsx" />
 
+## 基础环图 1
+
+<code src="./demo/simple-01.tsx" />
+
 ## API
 
 文本链接的属性说明如下：
