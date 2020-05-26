@@ -10,9 +10,19 @@ group:
 
 # Liquid 水波图
 
-## 基本使用
+## 代码示例
+
+### 基本使用
 
 <code src="./demo/simple.tsx" />
+
+### 百分比显示
+
+<code src="./demo/percent.tsx" />
+
+### Mini
+
+<code src="./demo/mini.tsx" />
 
 ## API
 
