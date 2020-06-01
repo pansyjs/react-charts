@@ -10,5 +10,10 @@ export { default as Bullet } from './bullet';
 export { default as Calendar } from './calendar';
 export { default as Radar } from './radar';
 export { default as Rose } from './rose';
+export { default as Scatter } from './scatter';
 export { default as Funnel } from './funnel';
+export { default as Waterfall } from './waterfall';
+
+// 迷你图表
+export { default as Progress } from './progress';
 export { default as RingProgress } from './ring-progress';
