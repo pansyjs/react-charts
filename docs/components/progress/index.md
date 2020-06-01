@@ -1,5 +1,5 @@
 ---
-title: RingProgress 环形进度条
+title: Progress 迷你进度条
 nav:
   title: 组件
   path: /component
@@ -8,9 +8,9 @@ group:
   path: /mini
 ---
 
-# RingProgress 环形进度条
+# Progress 迷你进度条
 
-环形进度条是 G2Plot 图表体系中，迷你图表的一种。
+迷你进度条是 G2Plot 图表体系中，迷你图表的一种。
 
 ## 基础环图
 
