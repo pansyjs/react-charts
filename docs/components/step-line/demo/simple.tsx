@@ -19,9 +19,6 @@ const Example: FC = () => {
       data={data}
       xField="year"
       meta={{
-        type: {
-          alias: '类别'
-        },
         value: {
           alias: '销售额(万)'
         }
