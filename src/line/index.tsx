@@ -6,21 +6,27 @@ import React, {
   forwardRef
 } from 'react';
 import { deepMix } from '@antv/util';
-import { RingProgress as G2RingProgress, RingProgressConfig } from '@antv/g2plot';
+import { Line as G2Line, LineConfig } from '@antv/g2plot';
 import ErrorBoundary from '../common/components/error-boundary';
 import useChart from '../common/hooks/use-chart';
 
-export interface RingProgressProps extends RingProgressConfig {
-  chartRef?: MutableRefObject<G2RingProgress | undefined>;
+export interface LineProps extends LineConfig {
+  chartRef?: MutableRefObject<G2Line | undefined>;
   style?: CSSProperties;
   className?: string;
 }
 
-const defaultConfig: Partial<RingProgressProps> = {};
+const defaultConfig: Partial<LineProps> = {
+  forceFit: true,
+  yField: 'value',
+  point: {
+    visible: true
+  }
+};
 
-const RingProgress = forwardRef((props: RingProgressProps, ref) => {
+const Line = forwardRef((props: LineProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2RingProgress, RingProgressConfig>(G2RingProgress, rest);
+  const { chart, container } = useChart<G2Line, LineProps>(G2Line, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -39,6 +45,6 @@ const RingProgress = forwardRef((props: RingProgressProps, ref) => {
   );
 });
 
-RingProgress.defaultProps = deepMix({}, G2RingProgress.getDefaultOptions(), defaultConfig);
+Line.defaultProps = deepMix({}, G2Line.getDefaultOptions(), defaultConfig);
 
-export default RingProgress;
+export default Line;
