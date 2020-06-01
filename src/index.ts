@@ -13,6 +13,7 @@ export { default as Rose } from './rose';
 export { default as Scatter } from './scatter';
 export { default as Funnel } from './funnel';
 export { default as Waterfall } from './waterfall';
+export { default as Treemap } from './treemap';
 
 // 迷你图表
 export { default as Progress } from './progress';
