@@ -13,6 +13,7 @@ export { default as Radar } from './radar';
 export { default as Rose } from './rose';
 export { default as Scatter } from './scatter';
 export { default as Funnel } from './funnel';
+export { default as Gauge } from './gauge';
 export { default as Waterfall } from './waterfall';
 export { default as Treemap } from './treemap';
 
