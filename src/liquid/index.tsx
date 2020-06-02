@@ -12,7 +12,7 @@ export interface LiquidConfig extends G2plotProps {
 
 const defaultConfig: Partial<LiquidConfig> = {};
 
-const LiquidChart = forwardRef((props: LiquidConfig, ref) => {
+const Liquid = forwardRef((props: LiquidConfig, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
 
   const { chart, container } = useChart<G2plotLiquid, LiquidConfig>(G2plotLiquid, rest);
@@ -32,7 +32,6 @@ const LiquidChart = forwardRef((props: LiquidConfig, ref) => {
   );
 });
 
-LiquidChart.defaultProps = G2plotLiquid.getDefaultOptions();
-LiquidChart.defaultProps = deepMix({}, G2plotLiquid.getDefaultOptions(), defaultConfig);
+Liquid.defaultProps = deepMix({}, G2plotLiquid.getDefaultOptions(), defaultConfig);
 
-export default LiquidChart;
+export default Liquid;

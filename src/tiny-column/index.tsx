@@ -1,23 +1,23 @@
 import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
 import { deepMix } from '@antv/util';
-import { Scatter as G2Scatter, ScatterConfig } from '@antv/g2plot';
+import { TinyColumn as G2TinyColumn, TinyColumnConfig } from '@antv/g2plot';
 import useChart from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
 
-export interface ScatterProps extends ScatterConfig {
-  chartRef?: MutableRefObject<G2Scatter | undefined>;
+export interface TinyColumnProps extends TinyColumnConfig {
+  chartRef?: MutableRefObject<G2TinyColumn | undefined>;
   style?: React.CSSProperties;
   className?: string;
 }
 
-const defaultConfig: Partial<ScatterProps> = {
+const defaultConfig: Partial<TinyColumnProps> = {
   yField: 'value',
   forceFit: true
 };
 
-const Scatter = forwardRef((props: ScatterProps, ref) => {
+const TinyColumn = forwardRef((props: TinyColumnProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Scatter, ScatterProps>(G2Scatter, rest);
+  const { chart, container } = useChart<G2TinyColumn, TinyColumnProps>(G2TinyColumn, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -36,6 +36,6 @@ const Scatter = forwardRef((props: ScatterProps, ref) => {
   );
 });
 
-Scatter.defaultProps = deepMix({}, G2Scatter.getDefaultOptions(), defaultConfig);
+TinyColumn.defaultProps = deepMix({}, G2TinyColumn.getDefaultOptions(), defaultConfig);
 
-export default Scatter;
+export default TinyColumn;

@@ -16,7 +16,11 @@ export { default as Funnel } from './funnel';
 export { default as Gauge } from './gauge';
 export { default as Waterfall } from './waterfall';
 export { default as Treemap } from './treemap';
+export { default as StackedColumn } from './stacked-column';
 
 // 迷你图表
 export { default as Progress } from './progress';
 export { default as RingProgress } from './ring-progress';
+export { default as TinyArea } from './tiny-area';
+export { default as TinyLine } from './tiny-line';
+export { default as TinyColumn } from './tiny-column';

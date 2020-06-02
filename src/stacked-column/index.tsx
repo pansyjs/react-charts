@@ -1,23 +1,22 @@
 import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
 import { deepMix } from '@antv/util';
-import { Scatter as G2Scatter, ScatterConfig } from '@antv/g2plot';
+import { StackedColumn as G2StackedColumn, StackedColumnConfig } from '@antv/g2plot';
 import useChart from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
 
-export interface ScatterProps extends ScatterConfig {
-  chartRef?: MutableRefObject<G2Scatter | undefined>;
+export interface StackedColumnProps extends StackedColumnConfig {
+  chartRef?: MutableRefObject<G2StackedColumn | undefined>;
   style?: React.CSSProperties;
   className?: string;
 }
 
-const defaultConfig: Partial<ScatterProps> = {
-  yField: 'value',
+const defaultConfig: Partial<StackedColumnProps> = {
   forceFit: true
 };
 
-const Scatter = forwardRef((props: ScatterProps, ref) => {
+const StackedColumn = forwardRef((props: StackedColumnProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Scatter, ScatterProps>(G2Scatter, rest);
+  const { chart, container } = useChart<G2StackedColumn, StackedColumnProps>(G2StackedColumn, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -36,6 +35,6 @@ const Scatter = forwardRef((props: ScatterProps, ref) => {
   );
 });
 
-Scatter.defaultProps = deepMix({}, G2Scatter.getDefaultOptions(), defaultConfig);
+StackedColumn.defaultProps = deepMix({}, G2StackedColumn.getDefaultOptions(), defaultConfig);
 
-export default Scatter;
+export default StackedColumn;

@@ -10,20 +10,20 @@ import { Area as G2Area, AreaConfig } from '@antv/g2plot';
 import ErrorBoundary from '../common/components/error-boundary';
 import useChart from '../common/hooks/use-chart';
 
-export interface LineProps extends AreaConfig {
+export interface AreaProps extends AreaConfig {
   chartRef?: MutableRefObject<G2Area | undefined>;
   style?: CSSProperties;
   className?: string;
 }
 
-const defaultConfig: Partial<LineProps> = {
+const defaultConfig: Partial<AreaProps> = {
   forceFit: true,
   yField: 'value'
 };
 
-const Area = forwardRef((props: LineProps, ref) => {
+const Area = forwardRef((props: AreaProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Area, LineProps>(G2Area, rest);
+  const { chart, container } = useChart<G2Area, AreaProps>(G2Area, rest);
 
   useEffect(() => {
     if (chartRef) {

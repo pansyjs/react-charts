@@ -10,20 +10,20 @@ import { Bar as G2Bar, BarConfig } from '@antv/g2plot';
 import ErrorBoundary from '../common/components/error-boundary';
 import useChart from '../common/hooks/use-chart';
 
-export interface LineProps extends BarConfig {
+export interface BarProps extends BarConfig {
   chartRef?: MutableRefObject<G2Bar | undefined>;
   style?: CSSProperties;
   className?: string;
 }
 
-const defaultConfig: Partial<LineProps> = {
+const defaultConfig: Partial<BarProps> = {
   forceFit: true,
   yField: 'value'
 };
 
-const Bar = forwardRef((props: LineProps, ref) => {
+const Bar = forwardRef((props: BarProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Bar, LineProps>(G2Bar, rest);
+  const { chart, container } = useChart<G2Bar, BarProps>(G2Bar, rest);
 
   useEffect(() => {
     if (chartRef) {
