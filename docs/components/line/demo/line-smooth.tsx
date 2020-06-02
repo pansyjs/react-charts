@@ -1,3 +1,7 @@
+/**
+ * title: 曲线折线图
+ * desc: 用平滑的曲线代替折线。
+ */
 import React, { FC } from 'react';
 // @ts-ignore
 import { Line } from '@pansy/react-charts';

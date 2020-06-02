@@ -1,8 +1,7 @@
 /**
- * title: 单折线图的基础用法
- * desc: 最基础简单的折线图使用方式，显示一个指标的趋势
+ * title: 带数据点的折线图
+ * desc: 将折线图上的每一个数据点显示出来，作为辅助阅读。
  */
-
 import React, { FC } from 'react';
 // @ts-ignore
 import { Line } from '@pansy/react-charts';
@@ -20,7 +19,14 @@ const data = [
 const Example: FC = () => {
   return (
     <div>
-      <Line data={data} xField="date" />
+      <Line
+        data={data}
+        xField="date"
+        smooth
+        point={{
+          visible: true
+        }}
+      />
     </div>
   );
 };

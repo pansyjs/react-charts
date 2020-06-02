@@ -18,10 +18,7 @@ export interface LineProps extends LineConfig {
 
 const defaultConfig: Partial<LineProps> = {
   forceFit: true,
-  yField: 'value',
-  point: {
-    visible: true
-  }
+  yField: 'value'
 };
 
 const Line = forwardRef((props: LineProps, ref) => {
