@@ -18,9 +18,11 @@ export { default as Treemap } from './treemap';
 
 // 柱状图
 export { default as Column } from './column';
+export { default as Histogram } from './histogram';
 export { default as RangeColumn } from './range-column';
 export { default as StackedColumn } from './stacked-column';
 export { default as GroupedColumn } from './grouped-column';
+export { default as PercentStackedColumn } from './percent-stacked-column';
 
 // 迷你图表
 export { default as Progress } from './progress';
