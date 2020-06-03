@@ -1,5 +1,5 @@
 ---
-title: StepLine 阶梯图
+title: StepLine 阶梯折线图
 nav:
   title: 组件
   path: /component

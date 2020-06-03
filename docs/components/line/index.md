@@ -16,13 +16,21 @@ group:
 
 ## 代码演示
 
-### 基础折线图
+### 单折线图的基础用法
 
 <code src="./demo/simple.tsx" />
 
 ### 曲线折线图
 
 <code src="./demo/line-smooth.tsx" />
+
+### 带数据点的折线图
+
+<code src="./demo/line-with-point.tsx" />
+
+### 为折线添加缩略轴交互
+
+<code src="./demo/line-slider.tsx" />
 
 ### 多折线图
 

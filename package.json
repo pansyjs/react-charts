@@ -27,22 +27,22 @@
     "react-dom": ">=16.9.0"
   },
   "dependencies": {
-    "@antv/g2plot": "^1.1.4"
+    "@antv/g2plot": "^1.1.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.10.2",
     "@types/react": "^16.9.32",
     "@types/react-dom": "^16.9.6",
     "@walrus/cli": "^1.3.0",
     "@walrus/plugin-release": "^1.8.0",
     "@walrus/preset-lint": "^1.1.5",
     "@walrus/test": "^1.0.1",
-    "dumi": "^1.0.26",
+    "dumi": "^1.0.28",
     "father-build": "^1.18.0",
     "husky": "3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.3"
   },
   "husky": {
     "hooks": {

@@ -30,8 +30,6 @@ const Example: FC = () => {
   return (
     <Rose
       data={data}
-      categoryField="type"
-      colorField="type"
       label={{
         visible: true,
         type: 'outer',

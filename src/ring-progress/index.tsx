@@ -5,6 +5,7 @@ import React, {
   useImperativeHandle,
   forwardRef
 } from 'react';
+import { deepMix } from '@antv/util';
 import { RingProgress as G2RingProgress, RingProgressConfig } from '@antv/g2plot';
 import ErrorBoundary from '../common/components/error-boundary';
 import useChart from '../common/hooks/use-chart';
@@ -15,9 +16,10 @@ export interface RingProgressProps extends RingProgressConfig {
   className?: string;
 }
 
+const defaultConfig: Partial<RingProgressProps> = {};
+
 const RingProgress = forwardRef((props: RingProgressProps, ref) => {
   const { chartRef, style = {}, className, ...rest } = props;
-
   const { chart, container } = useChart<G2RingProgress, RingProgressConfig>(G2RingProgress, rest);
 
   useEffect(() => {
@@ -37,6 +39,6 @@ const RingProgress = forwardRef((props: RingProgressProps, ref) => {
   );
 });
 
-RingProgress.defaultProps = G2RingProgress.getDefaultOptions();
+RingProgress.defaultProps = deepMix({}, G2RingProgress.getDefaultOptions(), defaultConfig);
 
 export default RingProgress;

@@ -4,8 +4,8 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 迷你图表
+  path: /mini
 ---
 
 # RingProgress 环形进度条

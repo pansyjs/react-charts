@@ -1,3 +1,8 @@
+/**
+ * title: 单折线图的基础用法
+ * desc: 最基础简单的折线图使用方式，显示一个指标的趋势
+ */
+
 import React, { FC } from 'react';
 // @ts-ignore
 import { Line } from '@pansy/react-charts';
