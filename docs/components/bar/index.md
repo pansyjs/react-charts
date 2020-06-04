@@ -1,14 +1,14 @@
 ---
-title: Bar 条形图
+title: Bar 基础条形图
 nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 条形图
+  path: /bar
 ---
 
-# Bar 条形图
+# Bar 基础条形图
 
 条形图即是横向柱状图，相比基础柱状图，条形图的分类文本可以横向排布，因此适合用于分类较多的场景。
 

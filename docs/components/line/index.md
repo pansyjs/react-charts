@@ -1,11 +1,11 @@
 ---
-title: Line 折线图
+title: Line 基础折线图
 nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 折线图
+  path: /line
 ---
 
 # Line 折线图

@@ -1,11 +1,11 @@
 ---
-title: Column 柱状图
+title: Column 基础柱状图
 nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 柱状图
+  path: /column
 ---
 
 # Column 柱状图

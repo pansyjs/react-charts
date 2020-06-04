@@ -4,8 +4,8 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 折线图
+  path: /line
 ---
 
 # StepLine 阶梯图

@@ -1,14 +1,14 @@
 ---
-title: PercentStackedColumn 百分比堆叠柱状图
+title: StackedColumnLine 堆叠柱+折线混合图
 nav:
   title: 组件
   path: /component
 group:
-  title: 柱状图
-  path: /column
+  title: 混合图表
+  path: /combo
 ---
 
-# PercentStackedColumn 百分比堆叠柱状图
+# StackedColumnLine 堆叠柱+折线混合图
 
 ## 基础柱状图
 

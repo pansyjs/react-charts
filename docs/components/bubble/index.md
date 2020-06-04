@@ -6,6 +6,7 @@ nav:
 group:
   title: 基本图表
   path: /basic
+  order: 0
 ---
 
 # Bubble 气泡图

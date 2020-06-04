@@ -32,6 +32,12 @@ export { default as StackedColumn } from './stacked-column';
 export { default as GroupedColumn } from './grouped-column';
 export { default as PercentStackedColumn } from './percent-stacked-column';
 
+// 混合图标
+export { default as DualLine } from './dual-line';
+export { default as ColumnLine } from './column-line';
+export { default as GroupedColumnLine } from './grouped-column-line';
+export { default as StackedColumnLine } from './stacked-column-line';
+
 // 迷你图表
 export { default as Progress } from './progress';
 export { default as RingProgress } from './ring-progress';

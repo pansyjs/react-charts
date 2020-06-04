@@ -1,16 +1,16 @@
 ---
-title: PercentStackedColumn 百分比堆叠柱状图
+title: ColumnLine 柱线混合图
 nav:
   title: 组件
   path: /component
 group:
-  title: 柱状图
-  path: /column
+  title: 混合图表
+  path: /combo
 ---
 
-# PercentStackedColumn 百分比堆叠柱状图
+# ColumnLine 柱线混合图
 
-## 基础柱状图
+## 基础漏斗图
 
 <code src="./demo/simple.tsx" />
 
