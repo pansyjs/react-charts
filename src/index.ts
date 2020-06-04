@@ -3,7 +3,6 @@ export { default as Area } from './area';
 export { default as Pie } from './pie';
 export { default as Dount } from './donut';
 export { default as StepLine } from './step-line';
-export { default as Bar } from './bar';
 export { default as Bubble } from './bubble';
 export { default as Liquid } from './liquid';
 export { default as Bullet } from './bullet';
@@ -15,6 +14,15 @@ export { default as Funnel } from './funnel';
 export { default as Gauge } from './gauge';
 export { default as Waterfall } from './waterfall';
 export { default as Treemap } from './treemap';
+export { default as Heatmap } from './heatmap';
+export { default as WordCloud } from './word-cloud';
+
+// 条形图
+export { default as Bar } from './bar';
+export { default as RangeBar } from './range-bar';
+export { default as GroupedBar } from './grouped-bar';
+export { default as StackedBar } from './stacked-bar';
+export { default as PercentStackedBar } from './percent-stacked-bar';
 
 // 柱状图
 export { default as Column } from './column';

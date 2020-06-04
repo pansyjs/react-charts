@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 // @ts-ignore
-import { Bubble } from '@pansy/react-charts';
+import { Bar } from '@pansy/react-charts';
 
 const data = [
   { 地区: '华东', 销售额: 4684506.442 },
