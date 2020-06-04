@@ -6,6 +6,7 @@ nav:
 group:
   title: 条形图
   path: /bar
+  order: 30
 ---
 
 # Bar 基础条形图

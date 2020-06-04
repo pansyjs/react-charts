@@ -6,6 +6,7 @@ nav:
 group:
   title: 基本图表
   path: /basic
+  order: 5
 ---
 
 # Bullet 子弹图
