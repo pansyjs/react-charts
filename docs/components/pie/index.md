@@ -1,14 +1,15 @@
 ---
-title: Pie 饼图
+title: Pie 基础饼图
 nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 饼图
+  path: /pie
+  order: 20
 ---
 
-# Pie 饼图
+# Pie 基础饼图
 
 饼图主要用于表示不同分类的占比情况。饼图中的每个扇形切片表现一个分类，扇形切片的弧度表示该分类在整体中的占比，所有切片构成一个整体，即 100%。
 

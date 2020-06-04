@@ -4,8 +4,8 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 柱状图
+  path: /column
 ---
 
 # Waterfall 瀑布图

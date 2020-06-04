@@ -4,13 +4,14 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 基本图表
-  path: /basic
+  title: 点图
+  path: /point
+  order: 10
 ---
 
 # Bubble 气泡图
 
-## 基础条形图
+## 基本示例
 
 <code src="./demo/simple.tsx" />
 
