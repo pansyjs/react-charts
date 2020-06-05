@@ -7,13 +7,15 @@ import React, { FC } from 'react';
 import { Line } from '@pansy/react-charts';
 
 const data = [
-  { date: '2020-04-01', value: 3 },
-  { date: '2020-04-02', value: 4 },
-  { date: '2020-04-03', value: 3.5 },
-  { date: '2020-04-04', value: 5 },
-  { date: '2020-04-05', value: 4.9 },
-  { date: '2020-04-06', value: 6 },
-  { date: '2020-04-07', value: 7 }
+  { year: '1991', value: 3 },
+  { year: '1992', value: 4 },
+  { year: '1993', value: 3.5 },
+  { year: '1994', value: 5 },
+  { year: '1995', value: 4.9 },
+  { year: '1996', value: 6 },
+  { year: '1997', value: 7 },
+  { year: '1998', value: 9 },
+  { year: '1999', value: 13 }
 ];
 
 const Example: FC = () => {
@@ -21,10 +23,17 @@ const Example: FC = () => {
     <div>
       <Line
         data={data}
-        xField="date"
+        xField="year"
         smooth
         point={{
-          visible: true
+          visible: true,
+          size: 5,
+          shape: 'diamond',
+          style: {
+            fill: 'white',
+            stroke: '#2593fc',
+            lineWidth: 2
+          }
         }}
         label={{
           visible: true,

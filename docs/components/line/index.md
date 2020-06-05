@@ -8,7 +8,7 @@ group:
   path: /line
 ---
 
-# Line 折线图
+# Line 基础折线图
 
 折线图用于表示连续时间跨度内的数据，它通常用于显示某变量随时间的变化模式：是上升还是下降，是否存在周期性的循环？因此，相对于独立的数据点，折线图关注的是全局趋势。
 
@@ -16,7 +16,7 @@ group:
 
 ## 代码演示
 
-### 单折线图的基础用法
+### 基础用法
 
 <code src="./demo/simple.tsx" />
 
@@ -28,6 +28,10 @@ group:
 
 <code src="./demo/line-with-point.tsx" />
 
+### 配置折线数据点样式
+
+<code src="./demo/line-point-style.tsx" />
+
 ### 为折线添加缩略轴交互
 
 <code src="./demo/line-slider.tsx" />
@@ -35,6 +39,14 @@ group:
 ### 多折线图
 
 <code src="./demo/multiple.tsx" />
+
+### 多折线图动画
+
+<code src="./demo/multiple-line-label.tsx" />
+
+### 多折线图-指定折线颜色
+
+<code src="./demo/multiple-line-color.tsx" />
 
 ## API
 
