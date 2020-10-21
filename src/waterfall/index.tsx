@@ -1,23 +1,26 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { Waterfall as G2Waterfall, WaterfallConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Waterfall as G2plotWaterfall, WaterfallOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface WaterfallProps extends WaterfallConfig {
-  chartRef?: MutableRefObject<G2Waterfall | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface WaterfallConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotWaterfall | undefined>;
 }
 
-const defaultConfig: Partial<WaterfallProps> = {
-  yField: 'value',
-  forceFit: true
-};
-
-const Waterfall = forwardRef((props: WaterfallProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Waterfall, WaterfallProps>(G2Waterfall, rest);
+const WaterfallChart = forwardRef((props: WaterfallConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotWaterfall, WaterfallConfig>(G2plotWaterfall, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -30,12 +33,11 @@ const Waterfall = forwardRef((props: WaterfallProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Waterfall.defaultProps = deepMix({}, G2Waterfall.getDefaultOptions(), defaultConfig);
-
-export default Waterfall;
+export default WaterfallChart;

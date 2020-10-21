@@ -1,47 +1,41 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Pie as G2Pie, PieConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Pie as G2plotPie, PieOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface PieProps extends PieConfig {
-  chartRef?: MutableRefObject<G2Pie | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface PieConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotPie | undefined>;
 }
 
-const defaultConfig: Partial<PieProps> = {
-  forceFit: true,
-  angleField: 'value'
-};
-
-const Pie = forwardRef((props: PieProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Pie, PieProps>(G2Pie, rest);
+const PieChart = forwardRef((props: PieConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotPie, PieConfig>(G2plotPie, rest);
 
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Pie.defaultProps = deepMix({}, G2Pie.getDefaultOptions(), defaultConfig);
-
-export default Pie;
+export default PieChart;

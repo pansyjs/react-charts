@@ -1,14 +1,14 @@
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
-import { Histogram as G2plotHistogram, HistogramOptions as G2plotProps } from '@antv/g2plot';
+import { Sunburst as G2plotSunburst, SunburstOptions as G2plotProps } from '@antv/g2plot';
 import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
 import ChartLoading from '../common/utils/create-loading';
 
-export interface HistogramConfig extends G2plotProps, ContainerProps {
-  chartRef?: React.MutableRefObject<G2plotHistogram | undefined>;
+export interface SunburstConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotSunburst | undefined>;
 }
 
-const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
+const SunburstChart = forwardRef((props: SunburstConfig, ref) => {
   const {
     chartRef,
     style = {
@@ -20,7 +20,8 @@ const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
     errorTemplate,
     ...rest
   } = props;
-  const { chart, container } = useChart<G2plotHistogram, HistogramConfig>(G2plotHistogram, rest);
+  const { chart, container } = useChart<G2plotSunburst, SunburstConfig>(G2plotSunburst, rest);
+
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
@@ -37,4 +38,4 @@ const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
   );
 });
 
-export default HistogramChart;
+export default SunburstChart;

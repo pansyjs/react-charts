@@ -1,14 +1,14 @@
 import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
-import { Histogram as G2plotHistogram, HistogramOptions as G2plotProps } from '@antv/g2plot';
+import { Stock as G2plotStock, StockOptions as G2plotProps } from '@antv/g2plot';
 import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
 import ChartLoading from '../common/utils/create-loading';
 
-export interface HistogramConfig extends G2plotProps, ContainerProps {
-  chartRef?: React.MutableRefObject<G2plotHistogram | undefined>;
+export interface StockConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotStock | undefined>;
 }
 
-const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
+const StockChart = forwardRef((props: StockConfig, ref) => {
   const {
     chartRef,
     style = {
@@ -20,7 +20,8 @@ const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
     errorTemplate,
     ...rest
   } = props;
-  const { chart, container } = useChart<G2plotHistogram, HistogramConfig>(G2plotHistogram, rest);
+  const { chart, container } = useChart<G2plotStock, StockConfig>(G2plotStock, rest);
+
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
@@ -37,4 +38,4 @@ const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
   );
 });
 
-export default HistogramChart;
+export default StockChart;

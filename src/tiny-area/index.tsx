@@ -1,23 +1,26 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { TinyArea as G2TinyArea, TinyAreaConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { TinyArea as G2plotTinyArea, TinyAreaOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface TinyAreaProps extends TinyAreaConfig {
-  chartRef?: MutableRefObject<G2TinyArea | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface TinyAreaConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotTinyArea | undefined>;
 }
 
-const defaultConfig: Partial<TinyAreaProps> = {
-  yField: 'value',
-  forceFit: true
-};
-
-const TinyArea = forwardRef((props: TinyAreaProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2TinyArea, TinyAreaProps>(G2TinyArea, rest);
+const TinyAreaChart = forwardRef((props: TinyAreaConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotTinyArea, TinyAreaConfig>(G2plotTinyArea, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -30,12 +33,11 @@ const TinyArea = forwardRef((props: TinyAreaProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-TinyArea.defaultProps = deepMix({}, G2TinyArea.getDefaultOptions(), defaultConfig);
-
-export default TinyArea;
+export default TinyAreaChart;

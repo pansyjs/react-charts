@@ -1,41 +1,40 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { Radar as G2Radar, RadarConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Radar as G2plotRadar, RadarOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface RadarProps extends RadarConfig {
-  chartRef?: MutableRefObject<G2Radar | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface RadarConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotRadar | undefined>;
 }
 
-const defaultConfig: Partial<RadarProps> = {
-  forceFit: true,
-  radiusField: 'value'
-};
-
-const Radar = forwardRef((props: RadarProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Radar, RadarProps>(G2Radar, rest);
-
+const RadarChart = forwardRef((props: RadarConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotRadar, RadarConfig>(G2plotRadar, rest);
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Radar.defaultProps = deepMix({}, G2Radar.getDefaultOptions(), defaultConfig);
-
-export default Radar;
+export default RadarChart;

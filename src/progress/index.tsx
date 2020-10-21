@@ -1,44 +1,40 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Progress as G2Progress, ProgressConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Progress as G2plotProgress, ProgressOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface ProgressProps extends ProgressConfig {
-  chartRef?: MutableRefObject<G2Progress | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface ProgressConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotProgress | undefined>;
 }
 
-const defaultConfig: Partial<ProgressProps> = {};
-
-const Progress = forwardRef((props: ProgressProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Progress, ProgressProps>(G2Progress, rest);
-
+const ProgressChart = forwardRef((props: ProgressConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotProgress, ProgressConfig>(G2plotProgress, rest);
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Progress.defaultProps = deepMix({}, G2Progress.getDefaultOptions(), defaultConfig);
-
-export default Progress;
+export default ProgressChart;

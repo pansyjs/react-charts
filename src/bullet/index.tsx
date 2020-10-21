@@ -1,29 +1,28 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Bullet as G2Bullet, BulletConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Bullet as G2plotBullet, BulletOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface BulletProps extends BulletConfig {
-  chartRef?: MutableRefObject<G2Bullet | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface BulletConfig
+  extends Omit<G2plotProps, 'color' | 'label' | 'style'>,
+    ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotBullet | undefined>;
 }
 
-const defaultConfig: Partial<BulletProps> = {
-  forceFit: true,
-  yField: 'value'
-};
-
-const Bullet = forwardRef((props: BulletProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Bullet, BulletProps>(G2Bullet, rest);
+const BulletChart = forwardRef((props: BulletConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotBullet, BulletConfig>(G2plotBullet, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -36,12 +35,11 @@ const Bullet = forwardRef((props: BulletProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Bullet.defaultProps = deepMix({}, G2Bullet.getDefaultOptions(), defaultConfig);
-
-export default Bullet;
+export default BulletChart;

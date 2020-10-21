@@ -1,29 +1,26 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Column as G2Column, ColumnConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Column as G2plotColumn, ColumnOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface ColumnProps extends ColumnConfig {
-  chartRef?: MutableRefObject<G2Column | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface ColumnConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotColumn | undefined>;
 }
 
-const defaultConfig: Partial<ColumnProps> = {
-  forceFit: true,
-  yField: 'value'
-};
-
-const Column = forwardRef((props: ColumnProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Column, ColumnProps>(G2Column, rest);
+const ColumnChart = forwardRef((props: ColumnConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotColumn, ColumnConfig>(G2plotColumn, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -36,12 +33,11 @@ const Column = forwardRef((props: ColumnProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Column.defaultProps = deepMix({}, G2Column.getDefaultOptions(), defaultConfig);
-
-export default Column;
+export default ColumnChart;

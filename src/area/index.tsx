@@ -1,29 +1,26 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Area as G2Area, AreaConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Area as G2plotArea, AreaOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface AreaProps extends AreaConfig {
-  chartRef?: MutableRefObject<G2Area | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface AreaConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotArea | undefined>;
 }
 
-const defaultConfig: Partial<AreaProps> = {
-  forceFit: true,
-  yField: 'value'
-};
-
-const Area = forwardRef((props: AreaProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Area, AreaProps>(G2Area, rest);
+const AreaChart = forwardRef((props: AreaConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotArea, AreaConfig>(G2plotArea, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -36,12 +33,11 @@ const Area = forwardRef((props: AreaProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Area.defaultProps = deepMix({}, G2Area.getDefaultOptions(), defaultConfig);
-
-export default Area;
+export default AreaChart;

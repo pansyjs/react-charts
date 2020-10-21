@@ -1,23 +1,26 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { Scatter as G2Scatter, ScatterConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Scatter as G2plotScatter, ScatterOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface ScatterProps extends ScatterConfig {
-  chartRef?: MutableRefObject<G2Scatter | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface ScatterConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotScatter | undefined>;
 }
 
-const defaultConfig: Partial<ScatterProps> = {
-  yField: 'value',
-  forceFit: true
-};
-
-const Scatter = forwardRef((props: ScatterProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Scatter, ScatterProps>(G2Scatter, rest);
+const ScatterChart = forwardRef((props: ScatterConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotScatter, ScatterConfig>(G2plotScatter, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -30,12 +33,11 @@ const Scatter = forwardRef((props: ScatterProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Scatter.defaultProps = deepMix({}, G2Scatter.getDefaultOptions(), defaultConfig);
-
-export default Scatter;
+export default ScatterChart;
