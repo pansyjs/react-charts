@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-// @ts-ignore
 import { Liquid } from '@pansy/react-charts';
 
 const Example: FC = () => {

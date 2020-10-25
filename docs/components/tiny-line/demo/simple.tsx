@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-// @ts-ignore
 import { TinyLine } from '@pansy/react-charts';
 
 const Example: FC = () => {

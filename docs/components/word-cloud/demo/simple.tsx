@@ -1,8 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
-// @ts-ignore
+import React, { useState, useEffect } from 'react';
 import { WordCloud } from '@pansy/react-charts';
 
-const Example: FC = () => {
+export default () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -79,5 +78,3 @@ const Example: FC = () => {
 
   return <WordCloud {...config} />;
 };
-
-export default Example;

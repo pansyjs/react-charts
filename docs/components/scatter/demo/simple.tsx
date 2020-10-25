@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from 'react';
-// @ts-ignore
 import { Scatter } from '@pansy/react-charts';
 
 const Example: FC = () => {

@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-// @ts-ignore
 import { Column } from '@pansy/react-charts';
 
 const data = [

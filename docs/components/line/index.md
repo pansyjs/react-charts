@@ -16,37 +16,65 @@ group:
 
 ## 代码演示
 
-### 基础用法
+### 基础折线图
 
-<code src="./demo/simple.tsx" />
+<code src="./demo/demo-01.tsx" />
 
 ### 曲线折线图
 
-<code src="./demo/line-smooth.tsx" />
-
-### 带数据点的折线图
-
-<code src="./demo/line-with-point.tsx" />
+<code src="./demo/demo-02.tsx" />
 
 ### 配置折线数据点样式
 
-<code src="./demo/line-point-style.tsx" />
+<code src="./demo/demo-03.tsx" />
 
-### 为折线添加缩略轴交互
+### 带缩略轴的折线
 
-<code src="./demo/line-slider.tsx" />
+<code src="./demo/demo-04.tsx" />
+
+### 折线图辅助线
+
+<code src="./demo/demo-05.tsx" />
+
+### 折线图线条颜色变化
+
+<code src="./demo/demo-06.tsx" />
+
+### 阶梯折线图
+
+<code src="./demo/demo-07.tsx" />
+
+### 多阶梯折线图
+
+<code src="./demo/demo-08.tsx" />
 
 ### 多折线图
 
-<code src="./demo/multiple.tsx" />
+<code src="./demo/demo-09.tsx" />
 
-### 多折线图动画
+### 二氧化碳排放量来源
 
-<code src="./demo/multiple-line-label.tsx" />
+<code src="./demo/demo-10.tsx" />
 
-### 多折线图-指定折线颜色
+### 多折线动画
 
-<code src="./demo/multiple-line-color.tsx" />
+<code src="./demo/demo-11.tsx" />
+
+### 指定折线颜色
+
+<code src="./demo/demo-12.tsx" />
+
+### 通过回调函数指定折线颜色
+
+<code src="./demo/demo-13.tsx" />
+
+### 指定折线样式
+
+<code src="./demo/demo-14.tsx" />
+
+### 指定 point marker 激活的样式
+
+<code src="./demo/demo-15.tsx" />
 
 ## API
 

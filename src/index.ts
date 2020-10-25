@@ -1,11 +1,9 @@
-// 此文件在构建时会自动更新，请勿手动修改，详见 package.json 中的 entry script
+// 此文件在构建时会自动更新，请勿手动修改!
 import Area from './area';
 import Bar from './bar';
 import Box from './box';
 import Bullet from './bullet';
 import Column from './column';
-// import Common from './common';
-import Donut from './donut';
 import DualAxes from './dual-axes';
 import Funnel from './funnel';
 import Gauge from './gauge';
@@ -32,8 +30,6 @@ export {
   Box,
   Bullet,
   Column,
-  // Common,
-  Donut,
   DualAxes,
   Funnel,
   Gauge,
@@ -61,8 +57,6 @@ export default {
   Box,
   Bullet,
   Column,
-  // Common,
-  Donut,
   DualAxes,
   Funnel,
   Gauge,
