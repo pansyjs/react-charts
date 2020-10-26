@@ -3,9 +3,7 @@ title: Line 基础折线图
 nav:
   title: 组件
   path: /component
-group:
-  title: 折线图
-  path: /line
+order: 1
 ---
 
 # Line 基础折线图
