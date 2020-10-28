@@ -13,9 +13,23 @@ group:
 
 环形进度条是 G2Plot 图表体系中，迷你图表的一种。
 
-## 基础环图
+## 代码演示
 
-<code src="./demo/simple.tsx" />
+### 迷你进度环图
+
+<code src="./demo/demo-01.tsx" />
+
+### 迷你进度环图样式
+
+<code src="./demo/demo-02.tsx" />
+
+### 迷你进度环图回调样式
+
+<code src="./demo/demo-03.tsx" />
+
+### 迷你进度环图半径大小
+
+<code src="./demo/demo-04.tsx" />
 
 ## API
 
