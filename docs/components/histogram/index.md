@@ -3,9 +3,10 @@ title: Histogram 直方图
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
-  title: 柱状图
-  path: /column
+  title: 基本图表
+  path: /basic
 ---
 
 # Histogram 直方图

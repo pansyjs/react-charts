@@ -3,6 +3,7 @@ title: Liquid 水波图
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
   title: 基本图表
   path: /basic

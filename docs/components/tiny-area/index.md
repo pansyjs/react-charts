@@ -3,6 +3,10 @@ title: TinyArea 迷你面积图
 nav:
   title: 组件
   path: /component
+  order: 2
+group:
+  title: 迷你图表
+  path: /tiny
 ---
 
 # TinyArea 迷你面积图

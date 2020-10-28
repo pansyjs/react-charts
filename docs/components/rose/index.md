@@ -3,9 +3,10 @@ title: Rose 玫瑰图
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
-  title: 饼图
-  path: /pie
+  title: 基本图表
+  path: /basic
 ---
 
 # Rose 玫瑰图

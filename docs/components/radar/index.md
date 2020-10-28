@@ -3,6 +3,7 @@ title: Radar 雷达图
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
   title: 基本图表
   path: /basic
@@ -19,6 +20,16 @@ group:
 ### 基础雷达图
 
 <code src="./demo/simple.tsx" />
+
+### 基础雷达图 - 带网格
+
+### 基础雷达图 - 带底色
+
+### 雷达图 - 面
+
+### 雷达图 - 面(带网格)
+
+### 雷达图 - 面(带底色)
 
 ## API
 

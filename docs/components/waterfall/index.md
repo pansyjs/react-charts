@@ -3,6 +3,9 @@ title: Waterfall 瀑布图
 nav:
   title: 组件
   path: /component
+group:
+  title: 基本图表
+  path: /basic
 ---
 
 # Waterfall 瀑布图

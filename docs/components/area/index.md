@@ -1,9 +1,13 @@
 ---
 title: Area 面积图
+order: 5
 nav:
   title: 组件
   path: /component
-order: 5
+  order: 2
+group:
+  title: 基本图表
+  path: /basic
 ---
 
 # Area 面积图

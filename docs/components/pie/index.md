@@ -3,10 +3,10 @@ title: Pie 基础饼图
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
-  title: 饼图
-  path: /pie
-  order: 20
+  title: 基本图表
+  path: /basic
 ---
 
 # Pie 基础饼图

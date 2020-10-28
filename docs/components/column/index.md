@@ -3,6 +3,10 @@ title: Column 基础柱状图
 nav:
   title: 组件
   path: /component
+  order: 2
+group:
+  title: 基本图表
+  path: /basic
 ---
 
 # Column 柱状图

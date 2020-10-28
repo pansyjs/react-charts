@@ -3,9 +3,10 @@ title: RingProgress 环形进度条
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
-  title: 迷你图表
-  path: /mini
+  title: 基本图表
+  path: /basic
 ---
 
 # RingProgress 环形进度条

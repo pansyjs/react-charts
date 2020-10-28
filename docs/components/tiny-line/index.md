@@ -5,7 +5,7 @@ nav:
   path: /component
 group:
   title: 迷你图表
-  path: /mini
+  path: /tiny
 ---
 
 # TinyLine 迷你折线图
