@@ -1,23 +1,26 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { TinyColumn as G2TinyColumn, TinyColumnConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { TinyColumn as G2plotTinyColumn, TinyColumnOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface TinyColumnProps extends TinyColumnConfig {
-  chartRef?: MutableRefObject<G2TinyColumn | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface TinyColumnConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotTinyColumn | undefined>;
 }
 
-const defaultConfig: Partial<TinyColumnProps> = {
-  yField: 'value',
-  forceFit: true
-};
-
-const TinyColumn = forwardRef((props: TinyColumnProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2TinyColumn, TinyColumnProps>(G2TinyColumn, rest);
+const TinyColumnChart = forwardRef((props: TinyColumnConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotTinyColumn, TinyColumnConfig>(G2plotTinyColumn, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -30,12 +33,11 @@ const TinyColumn = forwardRef((props: TinyColumnProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-TinyColumn.defaultProps = deepMix({}, G2TinyColumn.getDefaultOptions(), defaultConfig);
-
-export default TinyColumn;
+export default TinyColumnChart;

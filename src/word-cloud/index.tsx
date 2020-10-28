@@ -1,21 +1,26 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { WordCloud as G2WordCloud, WordCloudConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { WordCloud as G2plotWordCloud, WordCloudOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface WordCloudProps extends WordCloudConfig {
-  chartRef?: MutableRefObject<G2WordCloud | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface WordCloudConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotWordCloud | undefined>;
 }
 
-const defaultConfig: Partial<WordCloudProps> = {
-  forceFit: true
-};
-
-const WordCloud = forwardRef((props: WordCloudProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2WordCloud, WordCloudProps>(G2WordCloud, rest);
+const WordCloudChart = forwardRef((props: WordCloudConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotWordCloud, WordCloudConfig>(G2plotWordCloud, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -28,12 +33,11 @@ const WordCloud = forwardRef((props: WordCloudProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-WordCloud.defaultProps = defaultConfig;
-
-export default WordCloud;
+export default WordCloudChart;

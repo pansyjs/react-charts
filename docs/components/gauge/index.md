@@ -3,6 +3,7 @@ title: Gauge 仪表盘
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
   title: 基本图表
   path: /basic
@@ -16,9 +17,15 @@ group:
 
 为了视觉上的不拥挤且符合常识，我们建议指针的数量不超过 3 根。
 
-## 基础漏斗图
+## 代码演示
 
-<code src="./demo/simple.tsx" />
+### 仪表盘
+
+<code src="./demo/demo-01.tsx" />
+
+### 自定义配置的仪表盘
+
+<code src="./demo/demo-02.tsx" />
 
 ## API
 

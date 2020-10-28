@@ -1,29 +1,26 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Gauge as G2Gauge, GaugeConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Gauge as G2plotGauge, GaugeOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface GaugeProps extends GaugeConfig {
-  chartRef?: MutableRefObject<G2Gauge | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface GaugeConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotGauge | undefined>;
 }
 
-const defaultConfig: Partial<GaugeProps> = {
-  forceFit: true,
-  yField: 'value'
-};
-
-const Gauge = forwardRef((props: GaugeProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Gauge, GaugeProps>(G2Gauge, rest);
+const GaugeChart = forwardRef((props: GaugeConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotGauge, GaugeConfig>(G2plotGauge, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -36,12 +33,11 @@ const Gauge = forwardRef((props: GaugeProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Gauge.defaultProps = deepMix({}, G2Gauge.getDefaultOptions(), defaultConfig);
-
-export default Gauge;
+export default GaugeChart;

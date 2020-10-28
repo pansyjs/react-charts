@@ -10,9 +10,29 @@ group:
 
 # WordCloud 词云图
 
-## 基础阶梯图
+## 词云图
 
-<code src="./demo/simple.tsx" />
+<code src="./demo/demo-01.tsx" />
+
+### 词云图 - 交互效果
+
+<code src="./demo/demo-02.tsx" />
+
+### 词云图 - 图片遮
+
+<code src="./demo/demo-03.tsx" />
+
+### 词云图 - 图片遮罩-base64
+
+<code src="./demo/demo-04.tsx" />
+
+### 词云图 - 自定义 Tooltip
+
+<code src="./demo/demo-05.tsx" />
+
+### 词云图 - colorField
+
+<code src="./demo/demo-06.tsx" />
 
 ## API
 

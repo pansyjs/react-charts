@@ -3,10 +3,10 @@ title: Pie 基础饼图
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
-  title: 饼图
-  path: /pie
-  order: 20
+  title: 基本图表
+  path: /basic
 ---
 
 # Pie 基础饼图
@@ -15,17 +15,37 @@ group:
 
 饼图是一个饱受争议的图表类型，有人认为饼图看起来难以阅读，我们的视觉系统只能判断出一个切片比一个切片要大，但很难确定大多少。在一些极端的情况下，饼图各切片大小相近，饼图将变得失去其功能性。如果你也有这种担心的话，可以使用条形图代替。
 
-## 基础饼图
+## 饼图
 
-<code src="./demo/simple.tsx" />
+<code src="./demo/demo-01.tsx" />
 
-### 外部图形标签
+## 饼图 - 外部图形标签
 
-<code src="./demo/outer-label.tsx" />
+<code src="./demo/demo-02.tsx" />
 
-### 图形标签蜘蛛布局
+## 饼图 - 蜘蛛布局标签
 
-<code src="./demo/spider-label.tsx" />
+<code src="./demo/demo-03.tsx" />
+
+## 饼图 - 设置条件状态
+
+<code src="./demo/demo-04.tsx" />
+
+## 饼图 - 图例交互
+
+<code src="./demo/demo-05.tsx" />
+
+## 饼图 - 带纹理
+
+<code src="./demo/demo-06.tsx" />
+
+## 环图
+
+<code src="./demo/demo-07.tsx" />
+
+## 环图 - 带统计指标卡
+
+<code src="./demo/demo-08.tsx" />
 
 ## API
 

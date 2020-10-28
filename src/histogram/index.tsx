@@ -1,47 +1,40 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { Histogram as G2Histogram, HistogramConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Histogram as G2plotHistogram, HistogramOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface HistogramProps extends HistogramConfig {
-  chartRef?: MutableRefObject<G2Histogram | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface HistogramConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotHistogram | undefined>;
 }
 
-const defaultConfig: Partial<HistogramProps> = {
-  forceFit: true,
-  binField: 'value'
-};
-
-const Histogram = forwardRef((props: HistogramProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Histogram, HistogramProps>(G2Histogram, rest);
-
+const HistogramChart = forwardRef((props: HistogramConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotHistogram, HistogramConfig>(G2plotHistogram, rest);
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Histogram.defaultProps = deepMix({}, G2Histogram.getDefaultOptions(), defaultConfig);
-
-export default Histogram;
+export default HistogramChart;

@@ -3,9 +3,10 @@ title: Progress 迷你进度条
 nav:
   title: 组件
   path: /component
+  order: 2
 group:
   title: 迷你图表
-  path: /mini
+  path: /tiny
 ---
 
 # Progress 迷你进度条

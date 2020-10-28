@@ -1,0 +1,80 @@
+import React from 'react';
+import { Bar } from '@pansy/react-charts';
+import { BarConfig } from '@pansy/react-charts/es/bar';
+
+const data = [
+  {
+    label: 'Mon.',
+    type: 'series1',
+    value: 2800
+  },
+  {
+    label: 'Mon.',
+    type: 'series2',
+    value: 2260
+  },
+  {
+    label: 'Tues.',
+    type: 'series1',
+    value: 1800
+  },
+  {
+    label: 'Tues.',
+    type: 'series2',
+    value: 1300
+  },
+  {
+    label: 'Wed.',
+    type: 'series1',
+    value: 950
+  },
+  {
+    label: 'Wed.',
+    type: 'series2',
+    value: 900
+  },
+  {
+    label: 'Thur.',
+    type: 'series1',
+    value: 500
+  },
+  {
+    label: 'Thur.',
+    type: 'series2',
+    value: 390
+  },
+  {
+    label: 'Fri.',
+    type: 'series1',
+    value: 170
+  },
+  {
+    label: 'Fri.',
+    type: 'series2',
+    value: 100
+  }
+];
+
+export default () => {
+  const config: BarConfig = {
+    data,
+    isGroup: true,
+    xField: 'value',
+    yField: 'label',
+    color: ['#1383ab', '#c52125'],
+    seriesField: 'type',
+    marginRatio: 0,
+    label: {
+      // 可手动配置 label 数据标签位置
+      position: 'middle', // 'left', 'middle', 'right'
+      // 可配置附加的布局方法
+      layout: [
+        // 柱形图数据标签位置自动调整
+        { type: 'interval-adjust-position' },
+        // 数据标签文颜色自动调整
+        { type: 'adjust-color' }
+      ]
+    }
+  };
+  return <Bar {...config} />;
+};

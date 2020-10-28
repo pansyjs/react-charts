@@ -1,25 +1,26 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { Rose as G2Rose, RoseConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Rose as G2plotRose, RoseOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface RoseProps extends RoseConfig {
-  chartRef?: MutableRefObject<G2Rose | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface RoseConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotRose | undefined>;
 }
 
-const defaultConfig: Partial<RoseProps> = {
-  forceFit: true,
-  colorField: 'type',
-  radiusField: 'value',
-  categoryField: 'type'
-};
-
-const Rose = forwardRef((props: RoseProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Rose, RoseProps>(G2Rose, rest);
+const RoseChart = forwardRef((props: RoseConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotRose, RoseConfig>(G2plotRose, rest);
 
   useEffect(() => {
     if (chartRef) {
@@ -32,12 +33,11 @@ const Rose = forwardRef((props: RoseProps, ref) => {
   }));
 
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-Rose.defaultProps = deepMix({}, G2Rose.getDefaultOptions(), defaultConfig);
-
-export default Rose;
+export default RoseChart;

@@ -1,33 +1,40 @@
-import React, { MutableRefObject, useEffect, useImperativeHandle, forwardRef } from 'react';
-import { Funnel as G2Funnel, FunnelConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { Funnel as G2plotFunnel, FunnelOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface FunnelProps extends FunnelConfig {
-  chartRef?: MutableRefObject<G2Funnel | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface FunnelConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotFunnel | undefined>;
 }
 
-const Funnel = forwardRef((props: FunnelProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2Funnel, FunnelProps>(G2Funnel, rest);
-
+const FunnelChart = forwardRef((props: FunnelConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotFunnel, FunnelConfig>(G2plotFunnel, rest);
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-export default Funnel;
+export default FunnelChart;

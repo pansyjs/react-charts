@@ -1,44 +1,46 @@
-import React, {
-  CSSProperties,
-  MutableRefObject,
-  useEffect,
-  useImperativeHandle,
-  forwardRef
-} from 'react';
-import { deepMix } from '@antv/util';
-import { RingProgress as G2RingProgress, RingProgressConfig } from '@antv/g2plot';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import {
+  RingProgress as G2plotRingProgress,
+  RingProgressOptions as G2plotProps
+} from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
-import useChart from '../common/hooks/use-chart';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface RingProgressProps extends RingProgressConfig {
-  chartRef?: MutableRefObject<G2RingProgress | undefined>;
-  style?: CSSProperties;
-  className?: string;
+export interface RingProgressConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotRingProgress | undefined>;
 }
 
-const defaultConfig: Partial<RingProgressProps> = {};
-
-const RingProgress = forwardRef((props: RingProgressProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2RingProgress, RingProgressConfig>(G2RingProgress, rest);
-
+const RingProgressChart = forwardRef((props: RingProgressConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotRingProgress, RingProgressConfig>(
+    G2plotRingProgress,
+    rest
+  );
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-RingProgress.defaultProps = deepMix({}, G2RingProgress.getDefaultOptions(), defaultConfig);
-
-export default RingProgress;
+export default RingProgressChart;

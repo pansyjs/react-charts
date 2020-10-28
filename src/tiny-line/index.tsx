@@ -1,41 +1,40 @@
-import React, { MutableRefObject, forwardRef, useEffect, useImperativeHandle } from 'react';
-import { deepMix } from '@antv/util';
-import { TinyLine as G2TinyLine, TinyLineConfig } from '@antv/g2plot';
-import useChart from '../common/hooks/use-chart';
+import React, { useEffect, useImperativeHandle, forwardRef } from 'react';
+import { TinyLine as G2plotTinyLine, TinyLineOptions as G2plotProps } from '@antv/g2plot';
+import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
+import ChartLoading from '../common/utils/create-loading';
 
-export interface TinyLineProps extends TinyLineConfig {
-  chartRef?: MutableRefObject<G2TinyLine | undefined>;
-  style?: React.CSSProperties;
-  className?: string;
+export interface TinyLineConfig extends G2plotProps, ContainerProps {
+  chartRef?: React.MutableRefObject<G2plotTinyLine | undefined>;
 }
 
-const defaultConfig: Partial<TinyLineProps> = {
-  yField: 'value',
-  forceFit: true
-};
-
-const TinyLine = forwardRef((props: TinyLineProps, ref) => {
-  const { chartRef, style = {}, className, ...rest } = props;
-  const { chart, container } = useChart<G2TinyLine, TinyLineProps>(G2TinyLine, rest);
-
+const TinyLineChart = forwardRef((props: TinyLineConfig, ref) => {
+  const {
+    chartRef,
+    style = {
+      height: '100%'
+    },
+    className,
+    loading,
+    loadingTemplate,
+    errorTemplate,
+    ...rest
+  } = props;
+  const { chart, container } = useChart<G2plotTinyLine, TinyLineConfig>(G2plotTinyLine, rest);
   useEffect(() => {
     if (chartRef) {
       chartRef.current = chart.current;
     }
   }, [chart.current]);
-
   useImperativeHandle(ref, () => ({
     getChart: () => chart.current
   }));
-
   return (
-    <ErrorBoundary>
+    <ErrorBoundary errorTemplate={errorTemplate}>
+      {loading && <ChartLoading loadingTemplate={loadingTemplate} />}
       <div className={className} style={style} ref={container} />
     </ErrorBoundary>
   );
 });
 
-TinyLine.defaultProps = deepMix({}, G2TinyLine.getDefaultOptions(), defaultConfig);
-
-export default TinyLine;
+export default TinyLineChart;

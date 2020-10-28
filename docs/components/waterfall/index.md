@@ -4,17 +4,27 @@ nav:
   title: 组件
   path: /component
 group:
-  title: 柱状图
-  path: /column
+  title: 基本图表
+  path: /basic
 ---
 
 # Waterfall 瀑布图
 
 瀑布图形似瀑布流水，采用绝对值与相对值结合的方式，适用于表达数个特定数值之间的数量变化关系。
 
-## 基础阶梯图
+## 代码演示
 
-<code src="./demo/simple.tsx" />
+### 基础瀑布图 - 每月收支情况
+
+<code src="./demo/demo-01.tsx" />
+
+### 变化瀑布图 - 销售量一年的变化情况
+
+<code src="./demo/demo-02.tsx" />
+
+### 瀑布图 - 数值标签展示绝对值
+
+<code src="./demo/demo-03.tsx" />
 
 ## API
 
