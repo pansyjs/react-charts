@@ -14,7 +14,21 @@ group:
 
 ## 基本示例
 
-<code src="./demo/simple.tsx" />
+### 基础迷你柱形图
+
+<code src="./demo/demo-01.tsx" />
+
+### 迷你柱形图样式
+
+<code src="./demo/demo-02.tsx" />
+
+### 迷你柱形图回调样式
+
+<code src="./demo/demo-03.tsx" />
+
+### 指定范围
+
+<code src="./demo/demo-04.tsx" />
 
 ## API
 
