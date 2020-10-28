@@ -14,15 +14,11 @@ group:
 
 ### 基本使用
 
-<code src="./demo/simple.tsx" />
+<code src="./demo/demo-01.tsx" />
 
 ### 百分比显示
 
-<code src="./demo/percent.tsx" />
-
-### Mini
-
-<code src="./demo/mini.tsx" />
+<code src="./demo/demo-02.tsx" />
 
 ## API
 
