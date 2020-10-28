@@ -13,9 +13,17 @@ group:
 
 迷你进度条是 G2Plot 图表体系中，迷你图表的一种。
 
-## 基础环图
+### 迷你进度条图样式
 
-<code src="./demo/simple.tsx" />
+<code src="./demo/demo-01.tsx" />
+
+### 迷你进度条图回调样式
+
+<code src="./demo/demo-02.tsx" />
+
+### 迷你进度条图大小
+
+<code src="./demo/demo-03.tsx" />
 
 ## API
 
