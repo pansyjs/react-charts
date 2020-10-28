@@ -10,9 +10,19 @@ group:
 
 # Histogram 直方图
 
-## 基础柱状图
+## 代码演示
 
-<code src="./demo/simple.tsx" />
+### 基础直方图
+
+<code src="./demo/demo-01.tsx" />
+
+### 直方图范围刻度
+
+<code src="./demo/demo-02.tsx" />
+
+### 层叠直方图
+
+<code src="./demo/demo-03.tsx" />
 
 ## API
 
