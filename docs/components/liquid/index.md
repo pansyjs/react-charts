@@ -1,5 +1,6 @@
 ---
 title: Liquid 水波图
+order: 21
 nav:
   title: 组件
   path: /component

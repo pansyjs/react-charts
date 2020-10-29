@@ -10,7 +10,9 @@ group:
 
 # WordCloud 词云图
 
-## 词云图
+## 代码演示
+
+### 词云图
 
 <code src="./demo/demo-01.tsx" />
 

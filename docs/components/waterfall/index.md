@@ -1,5 +1,6 @@
 ---
 title: Waterfall 瀑布图
+order: 12
 nav:
   title: 组件
   path: /component

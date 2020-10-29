@@ -1,5 +1,6 @@
 ---
-title: Line 基础折线图
+title: Line 折线图
+order: 1
 nav:
   title: 组件
   path: /component
@@ -9,7 +10,7 @@ group:
   path: /basic
 ---
 
-# Line 基础折线图
+# Line 折线图
 
 折线图用于表示连续时间跨度内的数据，它通常用于显示某变量随时间的变化模式：是上升还是下降，是否存在周期性的循环？因此，相对于独立的数据点，折线图关注的是全局趋势。
 

@@ -1,5 +1,6 @@
 ---
 title: Histogram 直方图
+order: 13
 nav:
   title: 组件
   path: /component

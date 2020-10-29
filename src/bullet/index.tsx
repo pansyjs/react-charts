@@ -4,9 +4,7 @@ import useChart, { ContainerProps } from '../common/hooks/use-chart';
 import ErrorBoundary from '../common/components/error-boundary';
 import ChartLoading from '../common/utils/create-loading';
 
-export interface BulletConfig
-  extends Omit<G2plotProps, 'color' | 'label' | 'style'>,
-    ContainerProps {
+export interface BulletConfig extends Omit<G2plotProps, 'style'>, ContainerProps {
   chartRef?: React.MutableRefObject<G2plotBullet | undefined>;
 }
 
@@ -22,6 +20,7 @@ const BulletChart = forwardRef((props: BulletConfig, ref) => {
     errorTemplate,
     ...rest
   } = props;
+  // @ts-ignore
   const { chart, container } = useChart<G2plotBullet, BulletConfig>(G2plotBullet, rest);
 
   useEffect(() => {

@@ -1,5 +1,6 @@
 ---
 title: Scatter 散点图
+order: 10
 nav:
   title: 组件
   path: /component

@@ -1,5 +1,6 @@
 ---
 title: Gauge 仪表盘
+order: 11
 nav:
   title: 组件
   path: /component

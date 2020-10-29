@@ -1,5 +1,6 @@
 ---
-title: Column 基础柱状图
+title: Column 柱状图
+order: 3
 nav:
   title: 组件
   path: /component

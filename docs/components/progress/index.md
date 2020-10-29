@@ -1,5 +1,5 @@
 ---
-title: Progress 迷你进度条
+title: Progress 进度条图
 nav:
   title: 组件
   path: /component
@@ -9,9 +9,11 @@ group:
   path: /tiny
 ---
 
-# Progress 迷你进度条
+# Progress 进度条图
 
-迷你进度条是 G2Plot 图表体系中，迷你图表的一种。
+进度条图是 G2Plot 图表体系中，迷你图表的一种。
+
+## 代码演示
 
 ### 迷你进度条图样式
 
