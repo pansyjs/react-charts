@@ -1,5 +1,6 @@
 ---
 title: Radar 雷达图
+order: 15
 nav:
   title: 组件
   path: /component
@@ -19,17 +20,15 @@ group:
 
 ### 基础雷达图
 
-<code src="./demo/simple.tsx" />
+<code src="./demo/demo-01.tsx" />
 
-### 基础雷达图 - 带网格
+### 雷达图-自定义 axis grid
 
-### 基础雷达图 - 带底色
+<code src="./demo/demo-02.tsx" />
 
-### 雷达图 - 面
+### 多组雷达图
 
-### 雷达图 - 面(带网格)
-
-### 雷达图 - 面(带底色)
+<code src="./demo/demo-03.tsx" />
 
 ## API
 

@@ -10,7 +10,7 @@ export default () => {
   }, []);
 
   const asyncFetch = () => {
-    fetch('https://gw.alipayobjects.com/os/bmw-prod/a104a693-2dd0-4a71-a190-39ec88f7307c.json')
+    fetch('https://gw.alipayobjects.com/os/bmw-prod/5c41aa9b-9c8a-425f-9f4d-934b889bb75d.json')
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => {
@@ -22,13 +22,16 @@ export default () => {
     data,
     xField: 'item',
     yField: 'score',
-    meta: { score: { alias: '分数' } },
+    seriesField: 'user',
     xAxis: {
-      line: null,
-      tickLine: null,
-      grid: { line: { style: { lineDash: null } } }
+      label: { offset: 15 },
+      grid: { line: { type: 'line' } }
     },
-    point: {}
+    yAxis: { grid: { line: { type: 'circle' } } },
+    point: { shape: 'circle' },
+    area: {},
+    legend: { position: 'bottom' }
   };
+
   return <Radar {...config} />;
 };

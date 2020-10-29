@@ -10,7 +10,7 @@ export default () => {
   }, []);
 
   const asyncFetch = () => {
-    fetch('https://gw.alipayobjects.com/os/bmw-prod/bda695a8-cd9f-4b78-a423-3d6d547c10c3.json')
+    fetch('https://gw.alipayobjects.com/os/bmw-prod/a104a693-2dd0-4a71-a190-39ec88f7307c.json')
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => {
@@ -27,6 +27,17 @@ export default () => {
       line: null,
       tickLine: null,
       grid: { line: { style: { lineDash: null } } }
+    },
+    yAxis: {
+      line: null,
+      tickLine: null,
+      grid: {
+        line: {
+          type: 'line',
+          style: { lineDash: null }
+        },
+        alternateColor: 'rgba(0, 0, 0, 0.04)'
+      }
     },
     point: {}
   };
